@@ -189,3 +189,6 @@ require("trouble").setup {
 -- setup autopairs
 require("nvim-autopairs").setup {}
 
+-- setup surround
+require("nvim-surround").setup()
+

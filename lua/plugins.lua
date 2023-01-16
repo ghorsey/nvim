@@ -66,4 +66,7 @@ return require('packer').startup(function()
 
 	-- Auto pairs
 	use "windwp/nvim-autopairs"
+
+	-- Surround plugin
+	use "kylechui/nvim-surround"
 end)
