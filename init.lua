@@ -196,3 +196,6 @@ require("nvim-surround").setup()
 -- gcc to comment linewise current line
 -- gbc to comment blockwise current line
 require("Comment").setup()
+
+-- setup hlight args plugin
+require("hlargs").setup()

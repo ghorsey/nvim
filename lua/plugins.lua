@@ -75,4 +75,10 @@ return require('packer').startup(function()
 
 	-- comment plugin
 	use "numToStr/Comment.nvim"
+
+	-- highlight method arguments
+	use {
+		'm-demare/hlargs.nvim',
+		requires = { 'nvim-treesitter/nvim-treesitter' }
+	}
 end)
