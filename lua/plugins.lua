@@ -86,4 +86,5 @@ return require('packer').startup(function()
 
 	use 'danilamihailov/beacon.nvim'
 
+	use 'lewis6991/impatient.nvim'
 end)

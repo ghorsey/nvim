@@ -199,3 +199,6 @@ require("Comment").setup()
 
 -- setup hlight args plugin
 require("hlargs").setup()
+
+-- setup impatient
+require("impatient")
