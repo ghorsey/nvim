@@ -4,6 +4,8 @@ return require('packer').startup(function()
 	use "wbthomason/packer.nvim" -- The plugin tool
 	use "cpea2506/one_monokai.nvim" -- Theme
 
+	use 'nvim-tree/nvim-web-devicons'
+
 	-- Mason to pull LSP Servers
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
@@ -83,4 +85,5 @@ return require('packer').startup(function()
 	}
 
 	use 'danilamihailov/beacon.nvim'
+
 end)
