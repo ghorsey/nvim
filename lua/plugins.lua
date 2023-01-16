@@ -54,4 +54,10 @@ return require('packer').startup(function()
 		'folke/todo-comments.nvim',
 		requires = "nvim-lua/plenary.nvim",
 	}
+
+	-- trouble window
+	use {
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	}
 end)
