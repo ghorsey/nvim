@@ -213,6 +213,3 @@ require("hlargs").setup()
 -- setup impatient
 require("impatient")
 
--- setup editorconfig
-require("editorconfig")
-
