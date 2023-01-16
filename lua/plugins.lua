@@ -69,4 +69,7 @@ return require('packer').startup(function()
 
 	-- Surround plugin
 	use "kylechui/nvim-surround"
+
+	-- vim illuminate
+	use "RRethy/vim-illuminate"
 end)
