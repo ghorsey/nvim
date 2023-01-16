@@ -72,4 +72,7 @@ return require('packer').startup(function()
 
 	-- vim illuminate
 	use "RRethy/vim-illuminate"
+
+	-- comment plugin
+	use "numToStr/Comment.nvim"
 end)
