@@ -5,6 +5,8 @@ opt.relativenumber = true
 opt.number = true
 opt.foldlevel = 99 -- Set to keep file from being folded by default
 opt.termguicolors = true
+opt.smartcase = true -- ignore case if searchi sall lower case
+opt.ignorecase = true -- ignore case when searching
 
 
 -- Set completeopt to hve a better completion experience
