@@ -6,6 +6,9 @@ return require('packer').startup(function()
 
 	use 'nvim-tree/nvim-web-devicons'
 
+	-- Notify frameowkr
+	use 'rcarriga/nvim-notify'
+
 	-- Mason to pull LSP Servers
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
@@ -33,8 +36,13 @@ return require('packer').startup(function()
 	-- Treesitter
 	use 'nvim-treesitter/nvim-treesitter'
 
-	-- Vimspector (Debugging)
-	use 'puremourning/vimspector'
+	-- Debugging
+	use 'mfussenegger/nvim-dap'
+	use 'jayp0521/mason-nvim-dap.nvim'
+	use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
+	
+	-- -- Vimspector (Debugging)
+	-- use 'puremourning/vimspector'
 
 	-- Terminal
 	use 'voldikss/vim-floaterm'

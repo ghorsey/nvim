@@ -24,6 +24,10 @@ require('plugins')
 require('opts')
 require('keys')
 
+require('notify').setup({
+	background_colour = "#000000"
+})
+
 -- Set theme to one monokai
 require("one_monokai").setup({
 	transparent = true
@@ -32,6 +36,22 @@ require("one_monokai").setup({
 -- Setup Mason
 require("mason").setup()
 require("mason-lspconfig").setup()
+
+-- Install libraries for Mason
+require("mason-nvim-dap").setup({
+	ensure_installed = {
+		"chrome-debug-adapter",
+		"node-debug2-adapter",
+		"netcoredbg",
+		"codelldb",
+	},
+	automatic_setup = true,
+	automatic_installation = true,
+})
+
+-- Debugging
+require('dap_config')
+require('dap_ui_config')
 
 -- Completion plugin
 local cmp = require'cmp'

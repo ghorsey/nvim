@@ -16,18 +16,27 @@ inoremap jk <ESC>
 ]])
 
 -- Vimspector
-vim.cmd([[ 
-nmap <F5>    <cmd>call vimspector#Launch()<cr>
-nmap <S-F5>  <cmd>call vimspector#Stop()<cr>
-nmap <F6>    <cmd>call vimspector#Reset()<cr>
-nmap <F10>   <cmd>call vimspector#StepOver()<cr>
-nmap <F11>   <cmd>call vimspector#StepInto()<cr>
-nmap <S-F11> <cmd>call vimspector#StepOut()<cr>
-]])
+-- vim.cmd([[ 
+-- nmap <F5>    <cmd>call vimspector#Launch()<cr>
+-- nmap <S-F5>  <cmd>call vimspector#Stop()<cr>
+-- nmap <F6>    <cmd>call vimspector#Reset()<cr>
+-- nmap <F10>   <cmd>call vimspector#StepOver()<cr>
+-- nmap <F11>   <cmd>call vimspector#StepInto()<cr>
+-- nmap <S-F11> <cmd>call vimspector#StepOut()<cr>
+-- ]])
 
-map('n', '<F9>', ":call vimspector#ToggleBreakpoint()<cr>")
-map('n', 'Dw', ":call vimspector#AddWatch()<cr>")
-map('n', 'De', ":call vimspector#Evaluate()<cr>")
+-- map('n', '<F9>', ":call vimspector#ToggleBreakpoint()<cr>")
+-- map('n', 'Dw', ":call vimspector#AddWatch()<cr>")
+-- map('n', 'De', ":call vimspector#Evaluate()<cr>")
+
+-- Debugger
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+vim.keymap.set('n', '<M-F9>', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+vim.keymap.set('n', '<F9>', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<C-F9>', function() require('dap').clear_breakpoints(); require("notify")("Breakpoints cleared", "warn") end)
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<S-F11>', function() require('dap').setp_out() end)
 
 -- floaterm short cuts
 map('n', "<leader>ft", ":FloatermNew --name=myFloat --height=0.8 --width=0.7 --autoclose=2 fish --cwd %:h<CR>")
