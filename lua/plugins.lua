@@ -81,4 +81,6 @@ return require('packer').startup(function()
 		'm-demare/hlargs.nvim',
 		requires = { 'nvim-treesitter/nvim-treesitter' }
 	}
+
+	use 'danilamihailov/beacon.nvim'
 end)
