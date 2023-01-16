@@ -18,3 +18,10 @@ You can install other LSP servers from `:MasonInstall`.
 
 ## Clang, gcc, zig needed for build
 To install zig on windows if needed use `scoop install zig`
+
+## Python 3 dependencies
+`pip install --user --upgrade neovim`
+`pip install --user --upgrade neovim-remote`
+
+## Ripgrep for searches
+`scoop install ripgrep`

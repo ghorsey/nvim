@@ -10,10 +10,20 @@ local ensure_packer = function()
 	return false
 end
 
-local packer_bootstrap = ensure_packer()
+-- local packer_bootstrap = ensure_packer() -- original line
+ensure_packer()
+
+-- Disable netrw at the (:Explore)
+vim.g.loaded_netrw = false
+vim.g.loaded_netrwPlugin = false
+
+
+vim.g.mapleader = " "
+
 
 require('plugins')
 require('opts')
+require('keys')
 
 -- Set theme to one monokai
 require("one_monokai").setup({
@@ -131,5 +141,34 @@ rust_tools.setup({
 			-- Code action groups
 			vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
 		end,
+	},
+})
+
+-- Setup telescope
+require('telescope').setup {
+	defaults = {
+		file_ignore_patterns = {
+			"^./.git",
+			"^./target/*",
+		}
+	},
+}
+
+-- Setup treeview
+require("nvim-tree").setup({
+	sort_by = "case_sensitive",
+	view = {
+		adaptive_size = true,
+		mappings = {
+			list = {
+				{ key = "u", action = "dir_up" },
+			},
+		},
+	},
+	renderer = {
+		group_empty = true,
+	},
+	filters = {
+		dotfiles = true,
 	},
 })

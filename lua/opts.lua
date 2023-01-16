@@ -1,3 +1,12 @@
+local opt = vim.opt -- with vim.opt we can set gloabl, window and buffer settings, acting like :set in vimscript
+--
+-- Show hybrid line numbers (both fixed and relative)
+opt.relativenumber = true
+opt.number = true
+opt.foldlevel = 99 -- Set to keep file from being folded by default
+opt.termguicolors = true
+
+
 -- Set completeopt to hve a better completion experience
 -- :help completeopt
 -- menuone: popup even when there's only one match
@@ -22,3 +31,11 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 -- Treesitter folding
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.g.nofoldenable = true
+
+-- Vimspector options
+vim.cmd([[ 
+let g:vimspector_sidebar_width = 85
+let g:vimspector_bottombar_height = 15
+let g:vimspector_terminal_maxwidth = 70
+]])

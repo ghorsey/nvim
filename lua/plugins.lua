@@ -30,4 +30,19 @@ return require('packer').startup(function()
 
 	-- Treesitter
 	use 'nvim-treesitter/nvim-treesitter'
+
+	-- Vimspector (Debugging)
+	use 'puremourning/vimspector'
+
+	-- Terminal
+	use 'voldikss/vim-floaterm'
+
+	-- Telescope for searching
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+
+	-- Hop for fast motions, TODO setup keybindings
+	use { 'phaazon/hop.nvim', branch='v2' }
+
+	-- File explorer
+	use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons', } }
 end)
