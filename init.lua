@@ -17,7 +17,6 @@ ensure_packer()
 vim.g.loaded_netrw = false
 vim.g.loaded_netrwPlugin = false
 
-
 vim.g.mapleader = " "
 
 
@@ -172,3 +171,9 @@ require("nvim-tree").setup({
 		dotfiles = true,
 	},
 })
+
+-- Setup lualine status bar
+require('lualine').setup()
+
+-- setup todos
+require('todo-comments').setup { }

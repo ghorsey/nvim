@@ -11,6 +11,10 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+vim.cmd([[
+inoremap jk <ESC>
+]])
+
 -- Vimspector
 vim.cmd([[ 
 nmap <F9>  <cmd>call vimspector#Launch()<cr>
