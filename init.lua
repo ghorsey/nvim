@@ -185,3 +185,7 @@ require("trouble").setup {
 	padding = true,
 	auto_preview = false,
 }
+
+-- setup autopairs
+require("nvim-autopairs").setup {}
+
