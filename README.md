@@ -2,6 +2,18 @@
 
 This is my new setup for nvim with pure Lua.
 
+## Prerequsites
+
+### Clang, gcc, zig needed for build
+To install zig on windows if needed use `scoop install zig`
+
+### Python 3 dependencies
+`pip install --user --upgrade neovim`
+`pip install --user --upgrade neovim-remote`
+
+### Ripgrep for searches
+`scoop install ripgrep`
+
 ## Plugin Manager
 
 To install on Linux/Mac
@@ -16,12 +28,3 @@ You can install other LSP servers from `:MasonInstall`.
 
 * rust: `:MasonInstall rust-analyzer codelldb`
 
-## Clang, gcc, zig needed for build
-To install zig on windows if needed use `scoop install zig`
-
-## Python 3 dependencies
-`pip install --user --upgrade neovim`
-`pip install --user --upgrade neovim-remote`
-
-## Ripgrep for searches
-`scoop install ripgrep`
