@@ -17,15 +17,15 @@ inoremap jk <ESC>
 
 -- Vimspector
 vim.cmd([[ 
-nmap <F9>  <cmd>call vimspector#Launch()<cr>
-nmap <F5>  <cmd>call vimspector#StepOver()<cr>
-nmap <F8>  <cmd>call vimspector#Reset()<cr>
-nmap <F11> <cmd>call vimspector#StepOver()<cr>
-nmap <F12> <cmd>call vimspector#StepOut()<cr>
-nmap <F10> <cmd>call vimspector#StepInto()<cr>
+nmap <F5>    <cmd>call vimspector#Launch()<cr>
+nmap <S-F5>  <cmd>call vimspector#Stop()<cr>
+nmap <F6>    <cmd>call vimspector#Reset()<cr>
+nmap <F10>   <cmd>call vimspector#StepOver()<cr>
+nmap <F11>   <cmd>call vimspector#StepInto()<cr>
+nmap <S-F11> <cmd>call vimspector#StepOut()<cr>
 ]])
 
-map('n', 'Db', ":call vimspector#toggleBreakpoint()<cr>")
+map('n', '<F9>', ":call vimspector#ToggleBreakpoint()<cr>")
 map('n', 'Dw', ":call vimspector#AddWatch()<cr>")
 map('n', 'De', ":call vimspector#Evaluate()<cr>")
 
