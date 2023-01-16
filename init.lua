@@ -166,10 +166,24 @@ require("nvim-tree").setup({
 	},
 	renderer = {
 		group_empty = true,
+		icons = {
+			git_placement = "after",
+			git = {
+				unstaged = "-",
+				staged = "s",
+				untracked = "u",
+				renamed = "r",
+				deleted = "d",
+				ignored = "i",
+			},
+		},
 	},
 	filters = {
 		dotfiles = true,
 	},
+	git = {
+		ignore = false,
+	}
 })
 
 -- Setup lualine status bar
