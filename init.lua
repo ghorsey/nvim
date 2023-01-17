@@ -9,7 +9,6 @@ local ensure_packer = function()
 	end
 	return false
 end
-
 -- local packer_bootstrap = ensure_packer() -- original line
 ensure_packer()
 
