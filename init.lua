@@ -53,6 +53,9 @@ require("mason-nvim-dap").setup({
 require('dap_config')
 require('dap_ui_config')
 
+-- LSP Configurations
+require('lsp_config')
+
 -- Completion plugin
 local cmp = require'cmp'
 
@@ -121,30 +124,6 @@ require('nvim-treesitter.configs').setup {
 		extended_mode = true,
 		max_file_lines = nil,
 	}
-}
-
--- Setup Lua LSP configuration
-require'lspconfig'.sumneko_lua.setup {
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = 'LuaJIT',
-			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = {'vim'},
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
 }
 
 -- Setup rust-tools

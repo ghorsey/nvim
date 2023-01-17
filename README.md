@@ -4,6 +4,11 @@ This is my new setup for nvim with pure Lua.
 
 ## Prerequsites
 
+### Fonts
+Download the FiraCode.zip from https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.2.2
+
+From the zip file install the `Fira Code Retina Nerd Font complete Mono.ttf`
+
 ### Clang, gcc, zig needed for build
 To install zig on windows if needed use `scoop install zig`
 
