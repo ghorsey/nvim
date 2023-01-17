@@ -1,12 +1,11 @@
-local opt = vim.opt -- with vim.opt we can set gloabl, window and buffer settings, acting like :set in vimscript
 --
 -- Show hybrid line numbers (both fixed and relative)
-opt.relativenumber = true
-opt.number = true
-opt.foldlevel = 99 -- Set to keep file from being folded by default
-opt.termguicolors = true
-opt.smartcase = true -- ignore case if searchi sall lower case
-opt.ignorecase = true -- ignore case when searching
+vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.foldlevel = 99 -- Set to keep file from being folded by default
+vim.opt.termguicolors = true
+vim.opt.smartcase = true -- ignore case if searchi sall lower case
+vim.opt.ignorecase = true -- ignore case when searching
 
 
 -- Set completeopt to hve a better completion experience
