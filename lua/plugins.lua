@@ -98,4 +98,8 @@ return require('packer').startup(function()
 	use 'lewis6991/impatient.nvim'
 
 	use('theprimeagen/harpoon')
+
+	use('mbbill/undotree')
+
+	use('tpope/vim-fugitive')
 end)
