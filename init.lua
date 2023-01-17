@@ -49,11 +49,11 @@ require("mason-nvim-dap").setup({
 })
 
 -- Debugging
-require('dap_config')
-require('dap_ui_config')
+-- require('dap_config')
+-- require('dap_ui_config')
 
 -- LSP Configurations
-require('lsp_config')
+-- require('lsp_config')
 
 -- Completion plugin
 local cmp = require'cmp'
