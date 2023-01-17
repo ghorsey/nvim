@@ -112,7 +112,8 @@ cmp.setup({
 })
 
 require('nvim-treesitter.configs').setup {
-	ensure_installed = { "lua", "rust", "toml" },
+	ensure_installed = { "help", "javascript", "typescript", "lua", "rust", "toml" },
+	sync_install = false,
 	auto_install = true,
 	highlight = {
 		enabled = true,

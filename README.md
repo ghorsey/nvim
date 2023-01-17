@@ -33,3 +33,7 @@ You can install other LSP servers from `:MasonInstall`.
 
 * rust: `:MasonInstall rust-analyzer codelldb`
 
+
+## Interesting Vim commands
+
+* `:so` source file, use to quickly reload lua file

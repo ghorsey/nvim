@@ -34,7 +34,8 @@ return require('packer').startup(function()
 	use 'hrsh7th/vim-vsnip'
 
 	-- Treesitter
-	use 'nvim-treesitter/nvim-treesitter'
+	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate' })
+	use ('nvim-treesitter/playground')
 
 	-- Debugging
 	use 'mfussenegger/nvim-dap'
@@ -96,4 +97,5 @@ return require('packer').startup(function()
 
 	use 'lewis6991/impatient.nvim'
 
+	use('theprimeagen/harpoon')
 end)
