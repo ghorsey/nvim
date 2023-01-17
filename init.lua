@@ -20,7 +20,7 @@ vim.g.mapleader = " "
 
 
 require('plugins')
-require('opts')
+require('set')
 require('keys')
 
 require('notify').setup({
