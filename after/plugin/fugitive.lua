@@ -4,6 +4,10 @@ local gah_Fugitive = vim.api.nvim_create_augroup("gah_Fugitive", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Adde 3 remaps to the fugitive buffer
+-- <leader>p = push branch
+-- <leader>P = pull branch
+-- <leader>t = push and track branch
 autocmd("BufWinEnter", {
     group = gah_Fugitive,
     pattern = "*",
