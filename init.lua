@@ -13,9 +13,7 @@ end
 -- local packer_bootstrap = ensure_packer() -- original line
 ensure_packer()
 
-require('plugins')
-require('set')
-require('remap')
+require("gah")
 
 require('notify').setup({
     background_colour = "#000000"
