@@ -1,7 +1,12 @@
-local use = require('packer').use
+-- Only required if you hae packer configured as `opt`
+vim.cmd[[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
 	use "wbthomason/packer.nvim" -- The plugin tool
+
+	-- Telescope for searching
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+
 	use "cpea2506/one_monokai.nvim" -- Theme
 
 	use 'nvim-tree/nvim-web-devicons'
@@ -41,15 +46,12 @@ return require('packer').startup(function()
 	use 'mfussenegger/nvim-dap'
 	use 'jayp0521/mason-nvim-dap.nvim'
 	use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
-	
+
 	-- -- Vimspector (Debugging)
 	-- use 'puremourning/vimspector'
 
 	-- Terminal
 	use 'voldikss/vim-floaterm'
-
-	-- Telescope for searching
-	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
 
 	-- Hop for fast motions, TODO setup keybindings
 	use { 'phaazon/hop.nvim', branch='v2' }
