@@ -9,6 +9,7 @@ local ensure_packer = function()
 	end
 	return false
 end
+
 -- local packer_bootstrap = ensure_packer() -- original line
 ensure_packer()
 
@@ -32,10 +33,6 @@ require("one_monokai").setup({
 	transparent = true
 })
 
--- Setup Mason
-require("mason").setup()
-require("mason-lspconfig").setup()
-
 -- Install libraries for Mason
 require("mason-nvim-dap").setup({
 	ensure_installed = {
@@ -47,84 +44,6 @@ require("mason-nvim-dap").setup({
 	automatic_setup = true,
 	automatic_installation = true,
 })
-
--- Debugging
--- require('dap_config')
--- require('dap_ui_config')
-
--- LSP Configurations
--- require('lsp_config')
-
--- Completion plugin
-local cmp = require'cmp'
-
-cmp.setup({
-	-- Enable LSP snippets
-	snippet = {
-		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
-		end,
-	},
-	mapping = {
-		['<C-p>']     = cmp.mapping.select_prev_item(),
-		['<C-n>']     = cmp.mapping.select_next_item(),
-		-- Add tab support
-		['<S-Tab>']   = cmp.mapping.select_prev_item(),
-		['<Tab>']     = cmp.mapping.select_next_item(),
-		['<C-S-f>']   = cmp.mapping.scroll_docs(-4),
-		['<C-f>']     = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>']     = cmp.mapping.close(),
-		['<CR>']      = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
-		})
-	},
-
-	-- Installed sources:
-	sources = {
-		{ name = 'path' }, -- file paths
-		{ name = 'nvim_lsp', keyboard_length = 3 }, -- from language server
-		{ name = 'nvim_lsp_signature_help'},        -- display function signatures with current parameter emphasized
-		{ name = 'nvim_lua', keyboard_length = 2 }, -- complete neovim's Lua runtime API such vim.slp.*
-		{ name = 'buffer', keyword_length = 2 },    -- source current buffer
-		{ name = 'vsnip', keyboard_length = 2 },    -- nvim-cmp source for vim-vsnip
-		{ name = 'calc' },                          -- source for math calculation
-	},
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-	formatting = {
-		fields = { 'menu', 'abbr', 'kind' },
-		format = function(entry, item)
-			local menu_icon = {
-				nvim_lsp = 'λ',
-				vsnip = '⋗',
-				buffer = 'Ω',
-				path = '🖫',
-			}
-			item.menu = menu_icon[entry.source.name]
-			return item
-		end,
-	},
-})
-
-require('nvim-treesitter.configs').setup {
-	ensure_installed = { "help", "javascript", "typescript", "lua", "rust", "toml" },
-	sync_install = false,
-	auto_install = true,
-	highlight = {
-		enabled = true,
-		additional_vim_regex_highlighting = false,
-	},
-	indent = { enabled = true },
-	rainbow = {
-		enabled = true, 
-		extended_mode = true,
-		max_file_lines = nil,
-	}
-}
 
 -- Setup rust-tools
 local rust_tools = require("rust-tools")
@@ -139,16 +58,6 @@ rust_tools.setup({
 		end,
 	},
 })
-
--- Setup telescope
-require('telescope').setup {
-	defaults = {
-		file_ignore_patterns = {
-			"^./.git",
-			"^./target/*",
-		}
-	},
-}
 
 -- Setup treeview
 require("nvim-tree").setup({
@@ -180,7 +89,7 @@ require("nvim-tree").setup({
 })
 
 -- Setup lualine status bar
-require('lualine').setup()
+require('lualine').setup{}
 
 -- setup todos
 require('todo-comments').setup { }

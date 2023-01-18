@@ -9,38 +9,47 @@ return require('packer').startup(function(use)
 
 	use "cpea2506/one_monokai.nvim" -- Theme
 
+	-- Treesitter
+	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate' })
+	-- use ('nvim-treesitter/playground') -- Used for AST of lua and plugin development
+
+	use('theprimeagen/harpoon')
+
+	use('mbbill/undotree')
+
+	use('tpope/vim-fugitive')
+
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		requires = {
+			-- LSP Support
+			{'neovim/nvim-lspconfig'},             -- Required
+			{'williamboman/mason.nvim'},           -- Optional
+			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},         -- Required
+			{'hrsh7th/cmp-nvim-lsp'},     -- Required
+			-- {'hrsh7th/cmp-nvim-lua'},     -- Optional, by me
+			-- {'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, by me
+			{'hrsh7th/cmp-buffer'},       -- Optional
+			{'hrsh7th/cmp-path'},         -- Optional
+			{'saadparwaiz1/cmp_luasnip'}, -- Optional
+			{'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+			-- Snippets
+			{'L3MON4D3/LuaSnip'},             -- Required
+			{'rafamadriz/friendly-snippets'}, -- Optional
+		}
+	}
+
 	use 'nvim-tree/nvim-web-devicons'
 
 	-- Notify frameowkr
 	use 'rcarriga/nvim-notify'
 
-	-- Mason to pull LSP Servers
-	use 'williamboman/mason.nvim'
-	use 'williamboman/mason-lspconfig.nvim'
-
-	-- LSP configuration options
-	use 'neovim/nvim-lspconfig'
-
 	-- Rust
 	use 'simrat39/rust-tools.nvim'
-
-	-- Completion framework:
-	use 'hrsh7th/nvim-cmp'
-
-	-- LSP completion source:
-	use 'hrsh7th/cmp-nvim-lsp'
-
-	-- Useful completion sources:
-	use 'hrsh7th/cmp-nvim-lua'
-	use 'hrsh7th/cmp-nvim-lsp-signature-help'
-	use 'hrsh7th/cmp-vsnip'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/vim-vsnip'
-
-	-- Treesitter
-	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate' })
-	use ('nvim-treesitter/playground')
 
 	-- Debugging
 	use 'mfussenegger/nvim-dap'
@@ -62,7 +71,6 @@ return require('packer').startup(function(use)
 	-- Status bar
 	use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
-	--TODO: comments
 	use {
 		'folke/todo-comments.nvim',
 		requires = "nvim-lua/plenary.nvim",
@@ -98,10 +106,4 @@ return require('packer').startup(function(use)
 	use 'danilamihailov/beacon.nvim'
 
 	use 'lewis6991/impatient.nvim'
-
-	use('theprimeagen/harpoon')
-
-	use('mbbill/undotree')
-
-	use('tpope/vim-fugitive')
 end)
