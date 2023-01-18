@@ -37,3 +37,4 @@ You can install other LSP servers from `:MasonInstall`.
 ## Interesting Vim commands
 
 * `:so` source file, use to quickly reload lua file
+* `<C-v> {selection} s {change} <ESC>` Use this to edit vertically
