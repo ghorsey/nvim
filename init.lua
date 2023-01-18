@@ -13,16 +13,9 @@ end
 -- local packer_bootstrap = ensure_packer() -- original line
 ensure_packer()
 
--- Disable netrw at the (:Explore)
-vim.g.loaded_netrw = false
-vim.g.loaded_netrwPlugin = false
-
-vim.g.mapleader = " "
-
-
 require('plugins')
 require('set')
-require('keys')
+require('remap')
 
 require('notify').setup({
 	background_colour = "#000000"
