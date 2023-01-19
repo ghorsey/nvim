@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
 
 	-- Treesitter
 	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate' })
-	-- use ('nvim-treesitter/playground') -- Used for AST of lua and plugin development
+	use ('nvim-treesitter/playground') -- Used for AST of lua and plugin development
 
 	use('theprimeagen/harpoon')
 
@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
 		}
 	}
 
-	use 'nvim-tree/nvim-web-devicons'
+	-- use 'nvim-tree/nvim-web-devicons'
 
 	-- Notify frameowkr
 	use 'rcarriga/nvim-notify'
@@ -56,14 +56,11 @@ return require('packer').startup(function(use)
 	use 'jayp0521/mason-nvim-dap.nvim'
 	use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
 
-	-- -- Vimspector (Debugging)
-	-- use 'puremourning/vimspector'
-
 	-- Terminal
-	use 'voldikss/vim-floaterm'
+	-- use 'voldikss/vim-floaterm'
 
 	-- Hop for fast motions, TODO setup keybindings
-	use { 'phaazon/hop.nvim', branch='v2' }
+	-- use { 'phaazon/hop.nvim', branch='v2' }
 
 	-- File explorer
 	use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons', } }
@@ -71,16 +68,16 @@ return require('packer').startup(function(use)
 	-- Status bar
 	use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
-	use {
-		'folke/todo-comments.nvim',
-		requires = "nvim-lua/plenary.nvim",
-	}
+	-- use {
+	-- 	'folke/todo-comments.nvim',
+	-- 	requires = "nvim-lua/plenary.nvim",
+	-- }
 
 	-- trouble window
-	use {
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	}
+	-- use {
+	-- 	"folke/trouble.nvim",
+	-- 	requires = "kyazdani42/nvim-web-devicons",
+	-- }
 
 	-- Indent blankline
 	use "lukas-reineke/indent-blankline.nvim"
@@ -92,16 +89,16 @@ return require('packer').startup(function(use)
 	use "kylechui/nvim-surround"
 
 	-- vim illuminate
-	use "RRethy/vim-illuminate"
+	-- use "RRethy/vim-illuminate"
 
 	-- comment plugin
 	use "numToStr/Comment.nvim"
 
 	-- highlight method arguments
-	use {
-		'm-demare/hlargs.nvim',
-		requires = { 'nvim-treesitter/nvim-treesitter' }
-	}
+    -- use {
+    --     'm-demare/hlargs.nvim',
+    --     requires = { 'nvim-treesitter/nvim-treesitter' }
+    -- }
 
 	use 'danilamihailov/beacon.nvim'
 
