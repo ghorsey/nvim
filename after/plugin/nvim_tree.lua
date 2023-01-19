@@ -1,5 +1,11 @@
 -- Setup treeview
-require("nvim-tree").setup({
+local ok, nvimTree = pcall(require, "nvim-tree")
+if not ok then
+    print("nvim-tree not installed")
+    return
+end
+
+nvimTree.setup({
     sort_by = "case_sensitive",
     view = {
         adaptive_size = true,

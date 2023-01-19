@@ -1,6 +1,12 @@
 -- Learn the keybindings, see :help lsp-zero-keybindings
 -- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-local lsp = require('lsp-zero')
+local ok, lsp = pcall(require, 'lsp-zero')
+
+if not ok then
+    print("lsp-zero not installed")
+    return
+end
+
 lsp.preset('recommended')
 
 

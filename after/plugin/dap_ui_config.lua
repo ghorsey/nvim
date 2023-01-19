@@ -1,7 +1,7 @@
 local dap_ui_ok, ui =pcall(require, "dapui")
 local dap_ok, dap = pcall(require, "dap")
 if not (dap_ui_ok) then
-	require("notify")("dap-ui not installed!", "warning")
+	print("dap-ui not installed!", "warning")
 	return
 end
 

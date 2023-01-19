@@ -1,3 +1,7 @@
+-- local packer_bootstrap = ensure_packer() -- original line
+local packer_bootstrap = require("gah.utils").ensure_packer()
+
+
 -- Only required if you hae packer configured as `opt`
 vim.cmd[[packadd packer.nvim]]
 
@@ -103,4 +107,10 @@ return require('packer').startup(function(use)
 	use 'danilamihailov/beacon.nvim'
 
 	use 'lewis6991/impatient.nvim'
+  
+  -- use 'folke/zen-mode.nvim'
+
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)

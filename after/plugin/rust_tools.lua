@@ -1,5 +1,10 @@
 -- Setup rust-tools
-local rust_tools = require("rust-tools")
+local ok, rust_tools = pcall(require, "rust-tools")
+
+if not ok then
+    print("rust-tools not installed")
+    return
+end
 
 rust_tools.setup({
     server = {

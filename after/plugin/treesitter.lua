@@ -1,4 +1,11 @@
-require('nvim-treesitter.configs').setup {
+local ok, tree_sitter_configs = pcall(require, "nvim-treesitter.configs")
+
+if not ok then
+    print("nvim-treesitter not installed")
+    return
+end
+
+tree_sitter_configs.setup {
 	ensure_installed = {
        "help",
        "javascript",
