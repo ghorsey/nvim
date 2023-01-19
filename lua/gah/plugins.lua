@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
 		}
 	}
 
-	-- use 'nvim-tree/nvim-web-devicons'
+
 
 	-- Notify frameowkr
 	use 'rcarriga/nvim-notify'
@@ -59,6 +59,9 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-dap'
 	use 'jayp0521/mason-nvim-dap.nvim'
 	use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
+    use "theHamsta/nvim-dap-virtual-text"
+    use "nvim-telescope/telescope-dap.nvim"
+    use "rcarriga/cmp-dap"
 
 	-- Terminal
 	-- use 'voldikss/vim-floaterm'
@@ -93,7 +96,7 @@ return require('packer').startup(function(use)
 	use "kylechui/nvim-surround"
 
 	-- vim illuminate
-	-- use "RRethy/vim-illuminate"
+	use "RRethy/vim-illuminate"
 
 	-- comment plugin
 	use "numToStr/Comment.nvim"

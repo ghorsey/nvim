@@ -50,16 +50,15 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
 vim.keymap.set('n', '<M-F9>', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
 vim.keymap.set('n', '<F9>', function() require('dap').toggle_breakpoint() end)
-vim.keymap.set('n', '<C-F9>',
-    function() require('dap').clear_breakpoints(); require("notify")("Breakpoints cleared", "warn") end)
+vim.keymap.set('n', '<C-F9>', function() require('dap').clear_breakpoints(); require("notify")("Breakpoints cleared", "warn") end)
 vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
 vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
 vim.keymap.set('n', '<S-F11>', function() require('dap').step_out() end)
 
 -- floaterm short cuts
-vim.keymap.set('n', "<leader>ft", ":FloatermNew --name=myFloat --height=0.8 --width=0.7 --autoclose=2 fish --cwd %:h<CR>")
-vim.keymap.set('n', "t", ":FloatermToggle myfloat<CR>")
-vim.keymap.set('t', "<ESC>", "<C-\\><C-n>:q<CR>")
+-- vim.keymap.set('n', "<leader>ft", ":FloatermNew --name=myFloat --height=0.8 --width=0.7 --autoclose=2 fish --cwd %:h<CR>")
+-- vim.keymap.set('n', "t", ":FloatermToggle myfloat<CR>")
+-- vim.keymap.set('t', "<ESC>", "<C-\\><C-n>:q<CR>")
 
 -- Provide a way to edit current word everywhere
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
