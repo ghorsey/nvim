@@ -15,6 +15,7 @@ telescope.setup {
 }
 
 telescope.load_extension("dap")
+telescope.load_extension("i23")
 -- Telescope shortcuts
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

@@ -9,7 +9,15 @@ return require('packer').startup(function(use)
 	use "wbthomason/packer.nvim" -- The plugin tool
 
 	-- Telescope for searching
-	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+	use {
+        'nvim-telescope/telescope.nvim',
+        tag='0.1.0',
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+            -- this will allow use of .vscode/launch.json
+            { 'HUAHUAI23/telescope-dapzzzz'},
+        }
+    }
 
 	use "cpea2506/one_monokai.nvim" -- Theme
 
@@ -46,8 +54,6 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
-
-
 
 	-- Notify frameowkr
 	use 'rcarriga/nvim-notify'
