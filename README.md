@@ -4,6 +4,13 @@ This is my new setup for nvim with pure Lua.
 
 ## Prerequsites
 
+### Tree-sitter CLI
+
+This is optional but you can install the crate from here
+https://crates.io/crates/tree-sitter-cli
+
+`cargo install tree-sitter-cli`
+
 ### Fonts
 Download the FiraCode.zip from https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.2.2
 
