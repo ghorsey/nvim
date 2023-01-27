@@ -37,7 +37,6 @@ lsp.setup_nvim_cmp({
 
 lsp.on_attach(function(_, bufnr)
 	local opts = { buffer = bufnr, remap = false }
-	local sopts = { buffer = bufnr, remap = false, silent = true }
 
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -50,12 +49,13 @@ lsp.on_attach(function(_, bufnr)
 	vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signatureHelp() end, opts)
 
-    vim.keymap.set("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", sopts)
-    vim.keymap.set("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", sopts)
-    vim.keymap.set("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", sopts)
-    vim.keymap.set("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", sopts)
 end)
 
+local sopts = { noremap = true, silent = true }
+vim.keymap.set("i", "<C-k>", "<cmd>lua require'luasnip'.jump(1)<CR>", sopts)
+vim.keymap.set("s", "<C-k>", "<cmd>lua require'luasnip'.jump(1)<CR>", sopts)
+vim.keymap.set("i", "<C-j>", "<cmd>lua require'luasnip'.jump(-1)<CR>", sopts)
+vim.keymap.set("s", "<C-j>", "<cmd>lua require'luasnip'.jump(-1)<CR>", sopts)
 
 
 -- (Optional) Configure lua language server for neovim
