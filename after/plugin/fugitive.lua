@@ -17,7 +17,7 @@ autocmd("BufWinEnter", {
         end
 
         local bufnr = vim.api.nvim_get_current_buf()
-        local opts = { buffer = bufnr, remap = false }
+        local opts = { buffer = bufnr, remap = false, silent = true }
 
         -- When in Fugitive window, <leader>p to push
         vim.keymap.set("n", "<leader>p", function()
