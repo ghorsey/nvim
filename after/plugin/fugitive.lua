@@ -20,14 +20,14 @@ autocmd("BufWinEnter", {
         local opts = { buffer = bufnr, remap = false, silent = true }
 
         -- When in Fugitive window, <leader>p to push
-        vim.keymap.set("n", "<leader>ps", function()
-            vim.cmd.Git("push")
-        end, opts)
+        -- vim.keymap.set("n", "<leader>ps", function()
+        --     vim.cmd.Git("push")
+        -- end, opts)
 
         -- Rebase always
-        vim.keymap.set("n", "<leader>pl", function()
-            vim.cmd.Git({"pull", "--rebase"})
-        end, opts)
+        -- vim.keymap.set("n", "<leader>pl", function()
+        --     vim.cmd.Git({"pull", "--rebase"})
+        -- end, opts)
 
         -- NOTE: Push a branch and setup tracking correctly
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
