@@ -89,7 +89,7 @@ return require('packer').startup(function(use)
     use "rcarriga/cmp-dap"
 
 	-- Terminal
-	-- use 'voldikss/vim-floaterm'
+	use 'voldikss/vim-floaterm'
 
 	-- Hop for fast motions, TODO setup keybindings
 	-- use { 'phaazon/hop.nvim', branch='v2' }

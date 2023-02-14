@@ -33,8 +33,8 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
   sources = {
     { name = 'path' },
-    { name = 'nvim_lsp', keyword_length = 1 },
-    { name = 'nvim_lua', keyword_length = 1 },
+    { name = 'nvim_lsp', keyword_length = 2 },
+    { name = 'nvim_lua', keyword_length = 2 },
     { name = 'buffer', keyword_length = 3 },
     { name = 'luasnip', keyword_length = 2 },
     { name = 'nvim_lsp_signature_help' },
