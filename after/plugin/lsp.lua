@@ -9,11 +9,10 @@ end
 
 lsp.preset('recommended')
 
-
 lsp.ensure_installed({
 	'tsserver',
 	'eslint',
-	'sumneko_lua',
+	'lua_ls',
 	'rust_analyzer',
 })
 
@@ -66,6 +65,11 @@ lsp.setup()
 vim.diagnostic.config({
 	virtual_text = true,
 })
+
+
+require('fidget').setup()
+require('neodev').setup()
+
 
 --
 -- cmp.setup({

@@ -22,7 +22,17 @@ return require('packer').startup(function(use)
 	use "cpea2506/one_monokai.nvim" -- Theme
 
 	-- Treesitter
-	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate' })
+	use {
+    'nvim-treesitter/nvim-treesitter',
+     run = function()
+       pcall(require('nvim-treesitter.install').update { with_sync = true })
+     end,
+  }
+
+  use { -- Additional text objects via treesitter'
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter'
+  }
 	use ('nvim-treesitter/playground') -- Used for AST of lua and plugin development
 
 	use('theprimeagen/harpoon')
@@ -30,6 +40,8 @@ return require('packer').startup(function(use)
 	use('mbbill/undotree')
 
 	use('tpope/vim-fugitive')
+  use('tpope/vim-rhubarb')
+  use('lewis6991/gitsigns.nvim')
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -42,8 +54,8 @@ return require('packer').startup(function(use)
 			-- Autocompletion
 			{'hrsh7th/nvim-cmp'},         -- Required
 			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-			-- {'hrsh7th/cmp-nvim-lua'},     -- Optional, by me
-			-- {'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, by me
+			{'hrsh7th/cmp-nvim-lua'},     -- Optional, by me
+			{'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, by me
 			{'hrsh7th/cmp-buffer'},       -- Optional
 			{'hrsh7th/cmp-path'},         -- Optional
 			{'saadparwaiz1/cmp_luasnip'}, -- Optional
@@ -52,13 +64,17 @@ return require('packer').startup(function(use)
 			-- Snippets
 			{'L3MON4D3/LuaSnip'},             -- Required
 			{'rafamadriz/friendly-snippets'}, -- Optional
+
+      {'j-hui/fidget.nvim'}, -- Useful status updates for LSP
+
+      {'folke/neodev.nvim'} -- Additional lua configuration, makes nvim stuff amazing
 		}
 	}
 
     -- Copilot
     use 'github/copilot.vim'
 
-	-- Notify frameowkr
+	-- Notify framework
 	use 'rcarriga/nvim-notify'
 
 	-- Rust
