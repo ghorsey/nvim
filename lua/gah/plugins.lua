@@ -138,6 +138,9 @@ return require('packer').startup(function(use)
   
   -- use 'folke/zen-mode.nvim'
 
+    use 'vimwiki/vimwiki'
+    use 'michal-h21/vimwiki-sync'
+
   if packer_bootstrap then
     require("packer").sync()
   end
