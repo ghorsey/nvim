@@ -106,10 +106,10 @@ return require('packer').startup(function(use)
 	-- }
 
 	-- trouble window
-	-- use {
-	-- 	"folke/trouble.nvim",
-	-- 	requires = "kyazdani42/nvim-web-devicons",
-	-- }
+	use {
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	}
 
 	-- Indent blankline
 	use "lukas-reineke/indent-blankline.nvim"
