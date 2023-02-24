@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
         requires = {
             { 'nvim-lua/plenary.nvim' },
             -- this will allow use of .vscode/launch.json
-            { 'HUAHUAI23/telescope-dapzzzz'},
+            -- { 'HUAHUAI23/telescope-dapzzzz'},
         }
     }
 
