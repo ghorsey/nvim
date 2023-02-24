@@ -126,6 +126,9 @@ return require('packer').startup(function(use)
 	-- comment plugin
 	use "numToStr/Comment.nvim"
 
+    -- Mermaid syntax
+    use "craigmac/vim-mermaid"
+
 	-- highlight method arguments
     -- use {
     --     'm-demare/hlargs.nvim',
@@ -135,7 +138,7 @@ return require('packer').startup(function(use)
 	use 'danilamihailov/beacon.nvim'
 
 	use 'lewis6991/impatient.nvim'
-  
+
   -- use 'folke/zen-mode.nvim'
 
     use 'vimwiki/vimwiki'
