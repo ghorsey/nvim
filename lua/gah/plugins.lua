@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
         tag='0.1.0',
         requires = {
             { 'nvim-lua/plenary.nvim' },
+            { 'nvim-telescope/telescope-file-browser.nvim' },
             -- this will allow use of .vscode/launch.json
             -- { 'HUAHUAI23/telescope-dapzzzz'},
         }
