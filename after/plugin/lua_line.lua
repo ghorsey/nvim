@@ -8,4 +8,9 @@ if not ok then
 end
 
 lualine.setup {}
+-- The following fixes the disappearing intro
+-- lualine.setup { options = {
+--   section_separators = "",
+--   component_separators = ""
+-- }}
 
