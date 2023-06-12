@@ -1,6 +1,11 @@
 local root_path = require("utils").get_root()
 local cwd_path = vim.loop.cwd()
 
+if not cwd_path == root_path then
+  print("do not match")
+end
+
+
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
