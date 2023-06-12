@@ -1,8 +1,5 @@
 local root_path = require("utils").get_root()
 local cwd_path = vim.loop.cwd()
-print('"' .. root_path .. '"')
-print('"' .. cwd_path .. '"')
-
 
 return {
   {
