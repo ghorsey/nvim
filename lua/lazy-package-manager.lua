@@ -15,5 +15,13 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
     { import = "plugins.extras.coding.copilot" },
+    { import = "plugins.extras.ui.edgy" },
+    { import = "plugins.extras.dap.core" },
+    { import = "plugins.extras.dap.nlua" },
+    { import = "plugins.extras.test.core" },
+    { import = "plugins.extras.lang.json" },
+    { import = "plugins.extras.lang.tailwind" },
+    { import = "plugins.extras.lang.typescript" },
+    { import = "plugins.extras.linting.eslint" },
   },
 })
