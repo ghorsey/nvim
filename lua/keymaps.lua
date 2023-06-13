@@ -181,7 +181,5 @@ map("v", "<leader>d", '"_d', { desc = "Preserve deleted word when deleting over"
 map("n", "<C-c>", "<Esc>", { desc = "Stop highlighting" })
 
 -- Hint: start visual mode with the same area as the pevious area and the same mode
-map("v", "<", "<gv", { desc = "Decrease indent of selected lines", noremap = true, silent = true, })
-map("v", ">", ">gv", { desc = "Increase indent of selected lines", noremap = true, silent = true, })
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move highlighted lines down", noremap = true, silent = true, })
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move highlighted lines up", noremap = true, silent = true, })
+map("v", "<", "<gv", { desc = "Decrease indent of selected lines", noremap = true, silent = true, }) -- DOCUMENTED
+map("v", ">", ">gv", { desc = "Increase indent of selected lines", noremap = true, silent = true, })  -- DOCUMENTED
