@@ -14,9 +14,7 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-local function has(name)
-  return require("lazy.core.config").plugins[plugin] ~= nil
-end
+local Util = require("util")
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -43,7 +41,7 @@ map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- buffers
-if has("bufferline.nvim") then
+if Util.has("bufferline.nvim") then
   map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
   map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
   map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
@@ -100,7 +98,7 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 
-if not has("trouble.nvim") then
+if not Util.has("trouble.nvim") then
   map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
   map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 end
