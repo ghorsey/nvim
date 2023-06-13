@@ -24,4 +24,8 @@ require("lazy").setup({
     { import = "plugins.extras.lang.typescript" },
     { import = "plugins.extras.linting.eslint" },
   },
+}, {
+  ui = {
+    border = true,
+  },
 })
