@@ -1,4 +1,6 @@
 vim.g.mapleader = " " -- Set leader key to space
-require('lazy-package-manager')
-require('options')
-require('keymaps')
+vim.g.maplocalleader = " "
+
+require("lazy-package-manager")
+require("options")
+require("keymaps")

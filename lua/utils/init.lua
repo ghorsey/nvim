@@ -120,4 +120,16 @@ function M.fg(name)
   return fg and { fg = string.format("#%06x", fg) }
 end
 
+local enabled = true
+function M.toggle_diagnostics()
+  enabled = not enabled
+  if enabled then
+    vim.diagnostic.enable()
+    Util.info("Enabled diagnostics", { title = "Diagnostics" })
+  else
+    vim.diagnostic.disable()
+    Util.warn("Disabled diagnostics", { title = "Diagnostics" })
+  end
+end
+
 return M
