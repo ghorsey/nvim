@@ -161,8 +161,8 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- GAH Updates --
 -----------------
 -- Jump up and down the file keeping the cursor centered
-map('n', '<C-d>', '<C-d>zz', { desc = "Center the cursor after jumping down", noremap = true, silent = true,})
-map('n', '<C-u>', '<C-u>zz', { desc = "Center the cursor after jumping up", noremap = true, silent = true, })
+map('n', '<C-d>', '<C-d>zz', { desc = "Center the cursor after jumping down", noremap = true, silent = true,}) -- DOCUMENTED
+map('n', '<C-u>', '<C-u>zz', { desc = "Center the cursor after jumping up", noremap = true, silent = true, }) -- DOCUMENTED
 
 map('n', 'J', "mzJ`z", { desc = "Join lines and keep cursor position", noremap = true, silent = true, })
 
