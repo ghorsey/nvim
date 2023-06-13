@@ -21,3 +21,7 @@ require("lazy").setup({
     border = true,
   },
 })
+
+require("config.keymaps")
+require("config.options")
+
