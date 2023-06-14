@@ -164,6 +164,8 @@ return {
       end
 
       local ensure_installed = {
+        "angularls",
+        "omnisharp",
         "tsserver",
         "eslint",
         "lua_ls",
