@@ -2,7 +2,6 @@ local Util = require("lazy.core.util")
 
 local M = {}
 
-
 ---@type PluginLspOpts
 M.opts = nil
 
@@ -27,7 +26,6 @@ end
 
 ---@param opts? {force?:boolean}
 function M.format(opts)
-
   ---@param name string
   function opts(name)
     local plugin = require("lazy.core.config").plugins[name]
@@ -72,19 +70,19 @@ function M.notify(formatters)
     local line = ". **" .. client.name .. "**"
     if client.name == "null-ls" then
       line = line
-      .. " ("
-      .. table.concat(
-        vim.tbl_map(function(f)
-          return "`" .. f.name .. "`"
-        end, formatters.null_ls),
-        ","
-      )
-      .. ")"
+        .. " ("
+        .. table.concat(
+          vim.tbl_map(function(f)
+            return "`" .. f.name .. "`"
+          end, formatters.null_ls),
+          ","
+        )
+        .. ")"
     end
     table.insert(lines, line)
   end
 
-  if #formatters.available > 0 then 
+  if #formatters.available > 0 then
     table.insert(lines, "")
     table.insert(lines, "# Disabled:")
     for _, client in ipairs(formatters.available) do
@@ -124,7 +122,7 @@ function M.get_formatters(bufnr)
   local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
   for _, client in ipairs(clients) do
     if M.supports_format(client) then
-      if(#null_ls > 0 and client.name == "null-ls") or #null_ls == 0 then
+      if (#null_ls > 0 and client.name == "null-ls") or #null_ls == 0 then
         table.insert(ret.active, client)
       else
         table.insert(ret.available, client)
@@ -138,7 +136,7 @@ end
 -- and have not diaabled it in their client config
 ---@param client lsp.Client
 function M.supports_format(client)
-  if 
+  if
     client.config
     and client.config.capabilities
     and client.config.capabilities.documentFormattingProvider == false
@@ -163,4 +161,3 @@ function M.setup(opts)
 end
 
 return M
-
