@@ -17,11 +17,12 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-}, {
-  ui = {
-    border = true,
-  },
+  defaults = {},
+  checker = { enabled = true },
+  install = { colorscheme = { "one_monokai" } },
+  ui = { border = true },
 })
 
 require("config.keymaps")
+require("config.options")
 require("config.options")
