@@ -1,16 +1,5 @@
 local Util = require("util")
 
----@param on_attach fun(client, buffer)
-local function on_attach(on_attach)
-  vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(args)
-      local buffer = args.buf
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-      on_attach(client, buffer)
-    end,
-  })
-end
-
 local function lsp_get_config(server)
   local configs = require("lspconfig.configs")
   return rawget(configs, server)
@@ -111,7 +100,7 @@ return {
       -- setup autoformat
       require("plugins.lsp.format").setup(opts)
       -- setup formatting and keymaps
-      on_attach(function(client, buffer) -- Moved to local function
+      Util.on_attach(function(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
@@ -215,7 +204,7 @@ return {
           nls.builtins.diagnostics.fish,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.shfmt,
-          -- nls.builtins.diagnostics.flake8,
+          nls.builtins.diagnostics.flake8,
         },
       }
     end,
@@ -223,7 +212,6 @@ return {
 
   -- cmdline tools and lsp servers
   {
-
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },

@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { import = "plugins" },
-  }
+  },
 }, {
   ui = {
     border = true,
@@ -25,4 +25,3 @@ require("lazy").setup({
 
 require("config.keymaps")
 require("config.options")
-
