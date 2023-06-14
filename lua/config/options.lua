@@ -53,5 +53,4 @@ vim.g.markdown_recommended_style = 0
 -----------------
 -- GAH Updates --
 -----------------
-vim.cmd.colorscheme("one_monokai") -- set the colorscheme
 opt.colorcolumn = "101" -- Line length marker at 80 columns

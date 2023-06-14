@@ -1,7 +1,7 @@
 local Util = require("util")
 
 ---@param on_attach fun(client, buffer)
-function on_attach(on_attach)
+local function on_attach(on_attach)
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local buffer = args.buf
@@ -9,6 +9,23 @@ function on_attach(on_attach)
       on_attach(client, buffer)
     end,
   })
+end
+
+local function lsp_get_config(server)
+  local configs = require("lspconfig.configs")
+  return rawget(configs, server)
+end
+
+---@param server string
+---@param cond fun( root_dir, config): boolean
+local function lsp_disable(server, cond)
+  local util = require("lspconfig.util")
+  local def = lsp_get_config(server)
+  def.document_config.on_new_config = util.add_hook_before(def.document_config.on_new_config, function(config, root_dir)
+    if cond(root_dir, config) then
+      config.enabled = false
+    end
+  end)
 end
 
 return {
@@ -114,8 +131,7 @@ return {
       if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
         opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
           or function(diagnostic)
-            local icons = require("lazyvim.config").icons.diagnostics
-            for d, icon in pairs(icons) do
+            for d, icon in pairs(require("icons").diagnostics) do
               if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
                 return icon
               end
@@ -124,7 +140,6 @@ return {
       end
 
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
-      print("got here")
 
       local servers = opts.servers
       local capabilities = vim.tbl_deep_extend(
@@ -176,10 +191,10 @@ return {
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
       end
 
-      if Util.lsp_get_config("denols") and Util.lsp_get_config("tsserver") then
+      if lsp_get_config("denols") and lsp_get_config("tsserver") then
         local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-        Util.lsp_disable("tsserver", is_deno)
-        Util.lsp_disable("denols", function(root_dir)
+        lsp_disable("tsserver", is_deno)
+        lsp_disable("denols", function(root_dir)
           return not is_deno(root_dir)
         end)
       end

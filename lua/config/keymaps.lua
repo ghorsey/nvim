@@ -103,10 +103,8 @@ if not Util.has("trouble.nvim") then
   map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 end
 
--- stylua: ignore start
-
 -- toggle options
---map("n", "<leader>uf", require("plugins.lsp.format").toggle, { desc = "Toggle format on Save" }) -- GAH: we want format on save
+map("n", "<leader>uf", require("plugins.lsp.format").toggle, { desc = "Toggle format on Save" }) -- GAH: we want format on save
 --map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 --map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
 --map("n", "<leader>ul", function() Util.toggle("relativenumber", true) Util.toggle("number") end, { desc = "Toggle Line Numbers" })
@@ -162,25 +160,24 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- GAH Updates --
 -----------------
 -- Jump up and down the file keeping the cursor centered
-map('n', '<C-d>', '<C-d>zz', { desc = "Center the cursor after jumping down", noremap = true, silent = true,}) -- DOCUMENTED
-map('n', '<C-u>', '<C-u>zz', { desc = "Center the cursor after jumping up", noremap = true, silent = true, }) -- DOCUMENTED
+map("n", "<C-d>", "<C-d>zz", { desc = "Center the cursor after jumping down", noremap = true, silent = true })
+map("n", "<C-u>", "<C-u>zz", { desc = "Center the cursor after jumping up", noremap = true, silent = true })
 
-map('n', 'J', "mzJ`z", { desc = "Join lines and keep cursor position", noremap = true, silent = true, })
+map("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position", noremap = true, silent = true })
 
 -- As you search keep the cursor in the center
-map('n', 'n', 'nzzzv', { desc = "Search next and center", noremap = true, silent = true, })
-map('n', 'N', 'Nzzzv', { desc = "Search previous and center", noremap = true, silent = true, })
+map("n", "n", "nzzzv", { desc = "Search next and center", noremap = true, silent = true })
+map("n", "N", "Nzzzv", { desc = "Search previous and center", noremap = true, silent = true })
 
-
-map('n', 'Q', '<Nop>', { desc = "Disable Ex mode", noremap = true, silent = true, })
+map("n", "Q", "<Nop>", { desc = "Disable Ex mode", noremap = true, silent = true })
 
 -- Put, Delete, Yank
-map("x", "<leader>p", '"_dP', { desc = "Preserve yanked word when pasting over", noremap = true, silent = true, })
-map("n", "<leader>d", '"_d', { desc = "Preserve deleted word when deleting over", noremap = true, silent = true, })
-map("v", "<leader>d", '"_d', { desc = "Preserve deleted word when deleting over", noremap = true, silent = true, })
+map("x", "<leader>p", '"_dP', { desc = "Preserve yanked word when pasting over", noremap = true, silent = true })
+map("n", "<leader>d", '"_d', { desc = "Preserve deleted word when deleting over", noremap = true, silent = true })
+map("v", "<leader>d", '"_d', { desc = "Preserve deleted word when deleting over", noremap = true, silent = true })
 
 map("n", "<C-c>", "<Esc>", { desc = "Stop highlighting" })
 
 -- Hint: start visual mode with the same area as the pevious area and the same mode
-map("v", "<", "<gv", { desc = "Decrease indent of selected lines", noremap = true, silent = true, }) -- DOCUMENTED
-map("v", ">", ">gv", { desc = "Increase indent of selected lines", noremap = true, silent = true, })  -- DOCUMENTED
+map("v", "<", "<gv", { desc = "Decrease indent of selected lines", noremap = true, silent = true })
+map("v", ">", ">gv", { desc = "Increase indent of selected lines", noremap = true, silent = true })

@@ -4,7 +4,7 @@
 -- * root pattern of filename of the current buffer
 -- * root pattern of cwd
 ---@return string
-function get_root()
+local function get_root()
   local root_patterns = { ".git", "lua" }
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
@@ -46,7 +46,7 @@ end
 -- this will return a function that calls telescope.
 -- cwd will default to lazyvim.util.get_root
 -- for `files`, git_files or find_files will be chosen depending on .git
-function telescope(builtin, opts)
+local function telescope(builtin, opts)
   local params = { builtin = builtin, opts = opts }
   return function()
     builtin = params.builtin
@@ -78,7 +78,6 @@ function telescope(builtin, opts)
   end
 end
 
-
 return {
   -- Theme
   {
@@ -91,7 +90,7 @@ return {
   },
 
   -- Telescope
-    {
+  {
     "nvim-telescope/telescope.nvim",
     commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
     cmd = "Telescope",
