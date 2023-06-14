@@ -1,7 +1,8 @@
 local M = {}
 
 
-function M.has(name)
+---@param plugin string
+function M.has(plugin)
   return require("lazy.core.config").plugins[plugin] ~= nil
 end
 
