@@ -163,7 +163,12 @@ return {
         all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
       end
 
-      local ensure_installed = {} ---@type string[]
+      local ensure_installed = {
+        "tsserver",
+        "eslint",
+        "lua_ls",
+        "rust_analyzer",
+      } ---@type string[]
       for server, server_opts in pairs(servers) do
         if server_opts then
           server_opts = server_opts == true and {} or server_opts
@@ -178,6 +183,19 @@ return {
 
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
+
+        -- GAH Auto code from: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#you-might-not-need-lsp-zero
+        -- local lspconfig = require("lspconfig")
+        -- local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+        --
+        -- mlsp.setup_handlers({
+        --   function(server_name)
+        --     lspconfig[server_name].setup({
+        --       capabilities = lsp_capabilities,
+        --     })
+        --   end,
+        -- })
+        -- GAH End
       end
 
       if lsp_get_config("denols") and lsp_get_config("tsserver") then

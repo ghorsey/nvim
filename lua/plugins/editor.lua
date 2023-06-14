@@ -79,16 +79,6 @@ local function telescope(builtin, opts)
 end
 
 return {
-  -- Theme
-  {
-    "cpea2506/one_monokai.nvim",
-    config = function()
-      require("one_monokai").setup({
-        italics = false,
-      })
-    end,
-  },
-
   -- search/replace in multiple files
   {
     "nvim-pack/nvim-spectre",
@@ -237,9 +227,9 @@ return {
   {
     "ggandor/leap.nvim",
     keys = {
-      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+      { "<leader>sl", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "<leader>sL", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "gsl", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function(_, opts)
       local leap = require("leap")
