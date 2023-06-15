@@ -90,7 +90,7 @@ return {
   },
 
   -- Highlight where the cursor appears
-  { "danilamihailov/beacon.nvim" },
+  -- { "danilamihailov/beacon.nvim" },
 
   -- search/replace in multiple files
   {
