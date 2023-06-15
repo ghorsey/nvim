@@ -79,6 +79,19 @@ local function telescope(builtin, opts)
 end
 
 return {
+  -- Undo tree
+  {
+    "mbbill/undotree",
+    lazy = true,
+    -- stylua: ignore
+    keys = {
+      { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Toggle UndoTree" },
+    },
+  },
+
+  -- Highlight where the cursor appears
+  { "danilamihailov/beacon.nvim" },
+
   -- search/replace in multiple files
   {
     "nvim-pack/nvim-spectre",

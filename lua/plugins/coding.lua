@@ -1,4 +1,34 @@
 return {
+  -- Nx Tools
+  {
+    "Equilibris/nx.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("nx").setup({})
+    end,
+  },
+
+  -- Rust Tools
+  {
+    "simrat39/rust-tools.nvim",
+    config = function()
+      local rt = require("rust-tools")
+
+      rt.setup({
+        server = {
+          on_attach = function(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<C-Space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+          end,
+        },
+      })
+    end,
+  },
+
   -- snippets
   {
     "L3MON4D3/LuaSnip",
@@ -17,13 +47,7 @@ return {
     },
     -- stylua: ignore
     keys = {
-      {
-        "<tab>",
-        function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-        end,
-        expr = true, silent = true, mode = "i",
-      },
+      { "<tab>", function() return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end, expr = true, silent = true, mode = "i", },
       { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
@@ -118,13 +142,13 @@ return {
     end,
     opts = {
       mappings = {
-        add = "gsa", -- Add surrounding in Normal and Visual modes
-        delete = "gsd", -- Delete surrounding
-        find = "gsf", -- Find surrounding (to the right)
-        find_left = "gsF", -- Find surrounding (to the left)
-        highlight = "gsh", -- Highlight surrounding
-        replace = "gsr", -- Replace surrounding
-        update_n_lines = "gzn", -- Update `n_lines`
+        add = "ysa", -- Add surrounding in Normal and Visual modes
+        delete = "ysd", -- Delete seurrounding
+        find = "ysf", -- Find surrounding (to the right)
+        find_left = "ysF", -- Find surrounding (to the left)
+        highlight = "ysh", -- Highlight surrounding
+        replace = "ysr", -- Replace surrounding
+        update_n_lines = "ysn", -- Update `n_lines`
       },
     },
   },
