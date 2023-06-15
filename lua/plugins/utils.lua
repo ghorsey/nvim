@@ -1,5 +1,6 @@
 return {
   -- Session Managment
+  -- TODO: Causing an error when closing nvim
   {
     "folke/persistence.nvim",
     event = "BufReadPre",
