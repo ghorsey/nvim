@@ -18,7 +18,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = {},
-  checker = { enabled = true },
+  --  checker = { enabled = true },
   install = { colorscheme = { "one_monokai" } },
   ui = { border = true },
 })
