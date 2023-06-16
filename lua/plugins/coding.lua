@@ -5,9 +5,12 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
-    config = function()
-      require("nx").setup({})
-    end,
+    opts = {
+      cmd = { "npx nx" },
+      keys = {
+        { "<leader>nx", "<cmd>Nx<CR>", mode = "n" },
+      },
+    },
   },
 
   -- Rust Tools

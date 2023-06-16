@@ -1,16 +1,6 @@
 local Util = require("util")
 
 return {
-  -- Theme
-  {
-    "cpea2506/one_monokai.nvim",
-    config = function()
-      require("one_monokai").setup({
-        italics = false,
-      })
-    end,
-  },
-
   -- LSP Status updates
   {
     "j-hui/fidget.nvim", -- This is being rewritten so pin to legacy tag to not get interrupted

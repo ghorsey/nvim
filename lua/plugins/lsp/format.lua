@@ -38,6 +38,7 @@ function M.format(opts)
 
   local buf = vim.api.nvim_get_current_buf()
   if vim.b.autoformat == false and not (opts and opts.force) then
+    print("Autoformat is off for this buffer")
     return
   end
 

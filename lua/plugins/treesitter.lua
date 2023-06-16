@@ -34,11 +34,14 @@ return {
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
+      auto_install = true,
       ensure_installed = {
         "bash",
         "c",
+        "c_sharp",
         "html",
         "javascript",
+        "jsdoc",
         "json",
         "lua",
         "luadoc",
@@ -48,6 +51,8 @@ return {
         "python",
         "query",
         "regex",
+        "rust",
+        "toml",
         "tsx",
         "typescript",
         "vim",
