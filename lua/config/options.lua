@@ -1,5 +1,14 @@
 local opt = vim.opt
 
+local is_windows = vim.fn.has("win32") == 1
+
+if is_windows then
+  opt.shell = "powershell.exe"
+  opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
+  opt.shellquote = ""
+  opt.shellxquote = ""
+end
+
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
