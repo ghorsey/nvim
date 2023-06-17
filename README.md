@@ -1,6 +1,7 @@
 # Neovim Configuration
 
-This is my neovim configuration based on lazyvim.org and lazy.vim.
+This is my neovim configuration based on [lazyvim.org](https://www.lazyvim.org/) and 
+[lazy.vim](https://github.com/folke/lazy.nvim).
 
 ## Keymaps
 
