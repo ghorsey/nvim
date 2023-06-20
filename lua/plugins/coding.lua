@@ -1,17 +1,17 @@
 return {
   -- Nx Tools
-  {
-    "Equilibris/nx.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    opts = {
-      cmd = { "npx nx" },
-      keys = {
-        { "<leader>nx", "<cmd>Nx<CR>", mode = "n" },
-      },
-    },
-  },
+  -- {
+  --   "Equilibris/nx.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   opts = {
+  --     cmd = { "npx nx" },
+  --     keys = {
+  --       { "<leader>nx", "<cmd>Nx<CR>", mode = "n" },
+  --     },
+  --   },
+  -- },
 
   -- Rust Tools
   {
