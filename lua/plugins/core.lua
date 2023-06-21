@@ -16,6 +16,9 @@ return {
     config = true,
     keys = {
       { "<leader>ft", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
+      { "<leader>1ft", "<cmd>1ToggleTerm<cr>", desc = "Toggle Terminal" },
+      { "<leader>2ft", "<cmd>2ToggleTerm<cr>", desc = "Toggle Terminal" },
+      { "<leader>3ft", "<cmd>3ToggleTerm<cr>", desc = "Toggle Terminal" },
     },
   },
 }

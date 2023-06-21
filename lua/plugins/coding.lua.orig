@@ -1,5 +1,9 @@
 return {
+<<<<<<< HEAD
+  -- Nx Tools
+=======
   -- Nx Tools -- I am not spart enough to see how to use this.
+>>>>>>> 362b210 (feat: added some mapping to add terms)
   -- {
   --   "Equilibris/nx.nvim",
   --   dependencies = {
@@ -7,9 +11,12 @@ return {
   --   },
   --   opts = {
   --     cmd = { "npx nx" },
+<<<<<<< HEAD
   --     keys = {
   --       { "<leader>nx", "<cmd>Nx<CR>", mode = "n" },
   --     },
+=======
+>>>>>>> 362b210 (feat: added some mapping to add terms)
   --   },
   -- },
 
