@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { import = "plugins" },
-    { import = "plugins.extras.copilot" },
+    -- { import = "plugins.extras.copilot" },
     { import = "plugins.extras.dap" },
     { import = "plugins.extras.lang" },
     { import = "plugins.extras.eslint" },
