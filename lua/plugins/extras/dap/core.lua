@@ -14,6 +14,8 @@ return {
       opts = {},
       config = function(_, opts)
         local dap = require("dap")
+
+        dap.set_log_level("TRACE")
         local dapui = require("dapui")
         dapui.setup(opts)
         dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -64,9 +66,8 @@ return {
         -- online, please don't ask me how to install them :)
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
-          "js-debug-adapter",
-          "code-lldb",
-          "netcoredbg",
+          "codelldb",
+          "coreclr",
         },
       },
     },
