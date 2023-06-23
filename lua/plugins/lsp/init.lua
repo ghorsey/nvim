@@ -186,19 +186,6 @@ return {
 
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
-
-        -- GAH Auto code from: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#you-might-not-need-lsp-zero
-        -- local lspconfig = require("lspconfig")
-        -- local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-        --
-        -- mlsp.setup_handlers({
-        --   function(server_name)
-        --     lspconfig[server_name].setup({
-        --       capabilities = lsp_capabilities,
-        --     })
-        --   end,
-        -- })
-        -- GAH End
       end
 
       if lsp_get_config("denols") and lsp_get_config("tsserver") then

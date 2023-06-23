@@ -1,3 +1,5 @@
+local Util = require("util")
+
 local function adapter_path(adapter)
   local c = vim.fn.stdpath("data") .. "/mason/bin/" .. adapter
 
@@ -49,6 +51,24 @@ vim.g.dotnet_get_dll_path = function()
 end
 
 return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      setup = {
+        omnisharp = function(_, _) -- plugin, opts
+          Util.on_attach(function(client, _) -- client, buffer
+            if client.name == "omnisharp" then
+              -- Fix E5248: Invalid character in group name
+              -- https://github.com/williamboman/mason-lspconfig.nvim/issues/211
+              client.server_capabilities.semanticTokensProvider = nil
+            end
+          end)
+        end,
+      },
+    },
+  },
+
+  -- {
   --   "mfussenegger/nvim-dap",
   --   config = function()
   --     local dap = require("dap")

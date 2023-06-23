@@ -77,6 +77,11 @@ return {
     opts = function()
       local dap = require("dap")
       if not dap.adapters["pwa-node"] then
+        print("is this the correct path")
+        print(
+          require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+            .. "/js-debug/src/dapDebugServer.js"
+        )
         require("dap").adapters["pwa-node"] = {
           type = "server",
           host = "localhost",
