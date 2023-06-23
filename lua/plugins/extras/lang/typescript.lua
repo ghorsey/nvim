@@ -77,7 +77,7 @@ return {
     opts = function()
       local dap = require("dap")
       if not dap.adapters["pwa-node"] then
-        require("dap").adapters["pwa-node"] = {
+        dap.adapters["pwa-node"] = {
           type = "server",
           host = "localhost",
           port = "${port}",

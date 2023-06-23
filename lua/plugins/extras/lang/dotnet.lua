@@ -1,53 +1,64 @@
 local Util = require("util")
 
-local function adapter_path(adapter)
-  local c = vim.fn.stdpath("data") .. "/mason/bin/" .. adapter
-
-  -- print(vim.inspect(jit))
-
-  if jit.os == "Windows" then
-    return c .. ".cmd"
-  end
-
-  return c
-end
-
 -- Helpers for dotnet
-vim.g.dotnet_build_project = function()
-  local default_path = vim.fn.getcwd() .. "/"
-  if vim.g["dotnet_last_proj_path"] ~= nil then
-    default_path = vim.g["dotnet_last_proj_path"]
-  end
-  local path = vim.fn.input("Path to your *proj file: ", default_path, "file")
-  vim.g["dotnet_last_proj_path"] = path
-  -- local cmd = "dotnet build -c Debug " .. path .. " > /dev/null"
-  local cmd = "dotnet build -c Debug " .. path
-  print("")
-  print("Cmd to execute: " .. cmd)
-  local f = os.execute(cmd)
-  if f == 0 then
-    print("\nBuild: ✔️ ")
-  else
-    print("\nBuild: ❌ (code: " .. f .. ")")
-  end
-end
+-- local function dotnet_build_project()
+--   if vim.fn.confirm("Do you want to build a project?", "&yes\n&no", 2) ~= 1 then
+--     return
+--   end
+--
+--   local projFile = await
+--   coroutine.create(function(dap_run_co)
+--     local items = vim.fn.globpath(vim.fn.getcwd(), "**/*.*proj", 0, 1)
+--     local opts = {
+--       format_item = function(path)
+--         return vim.fn.fnamemodify(path, ":t")
+--       end,
+--     }
+--     local function cont(choice)
+--       if choice == nil then
+--         return nil
+--       else
+--         coroutine.resume(dap_run_co, choice)
+--       end
+--     end
+--
+--     vim.ui.select(items, opts, cont)
+--   end)
+--
+--   local cmd = "dotnet build -c Debug " .. projFile
+--   print(cmd)
+--
+--   local r = os.execute(cmd)
+--
+--   if r == 0 then
+--     print("\nBuild: ✔️")
+--   else
+--     print("\nBuild: ❌ (code: " .. r .. ")")
+--   end
+-- end
 
-vim.g.dotnet_get_dll_path = function()
-  local request = function()
-    return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
-  end
+local function get_dll()
+  return coroutine.create(function(dap_run_co)
+    local items = vim.fn.globpath(vim.fn.getcwd(), "**/bin/Debug/**/*.dll", 0, 1)
+    print(vim.inspect(items))
 
-  if vim.g["dotnet_last_dll_path"] == nil then
-    vim.g["dotnet_last_dll_path"] = request()
-  else
-    if
-      vim.fn.confirm("Do you want to change the path to dll?\n" .. vim.g["dotnet_last_dll_path"], "&yes\n&no", 2) == 1
-    then
-      vim.g["dotnet_last_dll_path"] = request()
+    local opts = {
+      format_item = function(path)
+        print("path: " .. path)
+        return vim.fn.fnamemodify(path, ":t")
+      end,
+    }
+
+    local function cont(choice)
+      if choice == nil then
+        return nil
+      else
+        coroutine.resume(dap_run_co, choice)
+      end
     end
-  end
 
-  return vim.g["dotnet_last_dll_path"]
+    vim.ui.select(items, opts, cont)
+  end)
 end
 
 return {
@@ -68,32 +79,40 @@ return {
     },
   },
 
-  -- {
-  --   "mfussenegger/nvim-dap",
-  --   config = function()
-  --     local dap = require("dap")
-  --     dap.set_log_level("INFO") -- Helps when debugging
-  --
-  --     -- dap.adapters.coreclr = {
-  --     --   type = "executable",
-  --     --   command = adapter_path("netcoredbg"),
-  --     --   args = { "--interpreter=vscode" },
-  --     -- }
-  --
-  --     dap.configurations.cs = {
-  --       {
-  --         type = "coreclr",
-  --         name = "launch - netcoredbg",
-  --         request = "launch",
-  --         program = function()
-  --           if vim.fn.confirm("Should I recompile first?", "&yes\n&no", 2) == 1 then
-  --             vim.g.dotnet_build_project()
-  --           end
-  --           return vim.g.dotnet_get_dll_path()
-  --         end,
-  --       },
-  --     }
-  --     print(vim.inspect(dap.adapters))
-  --     -- print(vim.inspect(dap.configurations))
-  --   end,
+  {
+    "mfussenegger/nvim-dap",
+    optional = true, -- What does optional do w/ lazy.vim
+    dependencies = {
+      "williamboman/mason.nvim",
+      opts = function(_, opts)
+        opts.ensure_installed = opts.ensure_installed or {}
+        table.insert(opts.ensure_installed, "netcoredbg")
+      end,
+    },
+    opts = function()
+      local dap = require("dap")
+      dap.set_log_level("TRACE")
+
+      -- if not dap.adapters.coreclr then
+      dap.adapters.coreclr = {
+        type = "executable",
+        command = vim.fn.exepath("netcoredbg"),
+        args = { "--interpreter=vscode", "--log" },
+      }
+      -- end
+
+      -- if not dap.configurations.cs then
+      dap.configurations.cs = {
+        {
+          type = "coreclr",
+          name = "NetCoreDbg: Launch",
+          request = "launch",
+          program = function()
+            return get_dll()
+          end,
+        },
+      }
+      -- end
+    end,
+  },
 }
