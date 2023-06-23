@@ -91,28 +91,29 @@ return {
     },
     opts = function()
       local dap = require("dap")
+
       dap.set_log_level("TRACE")
 
-      -- if not dap.adapters.coreclr then
-      dap.adapters.coreclr = {
-        type = "executable",
-        command = vim.fn.exepath("netcoredbg"),
-        args = { "--interpreter=vscode", "--log" },
-      }
-      -- end
+      if not dap.adapters.coreclr then
+        dap.adapters.coreclr = {
+          type = "executable",
+          command = vim.fn.exepath("netcoredbg"),
+          args = { "--interpreter=vscode", "--log" },
+        }
+      end
 
-      -- if not dap.configurations.cs then
-      dap.configurations.cs = {
-        {
-          type = "coreclr",
-          name = "NetCoreDbg: Launch",
-          request = "launch",
-          program = function()
-            return get_dll()
-          end,
-        },
-      }
-      -- end
+      if not dap.configurations.cs then
+        dap.configurations.cs = {
+          {
+            type = "coreclr",
+            name = "NetCoreDbg: Launch",
+            request = "launch",
+            program = function()
+              return get_dll()
+            end,
+          },
+        }
+      end
     end,
   },
 }
