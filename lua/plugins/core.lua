@@ -21,4 +21,9 @@ return {
       { "<leader>3ft", "<cmd>3ToggleTerm<cr>", desc = "Toggle Terminal" },
     },
   },
+
+  -- hardtime.nvim
+  {
+    "m4xshen/hardtime.nvim",
+  },
 }
