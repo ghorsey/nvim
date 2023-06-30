@@ -131,11 +131,11 @@ return {
               name = "Attach - Remote Debugging",
               request = "attach",
               program = "${file}",
-              cwd = vim.fn.getcwd(),
-              sourceMaps = true,
+              cwd = "${workspaceFolder}",
               protocol = "inspector",
               port = 9222,
               webRoot = "${workspaceFolder}",
+              url = "http://localhost:4200",
             },
             -- {
             --   type = "pwa-chrome",
