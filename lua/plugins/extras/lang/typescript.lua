@@ -45,9 +45,11 @@ return {
           require("util").on_attach(function(client, buffer)
             if client.name == "tsserver" then
               -- stylua: ignore
-              vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
+              vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>",
+                { buffer = buffer, desc = "Organize Imports" })
               -- stylua: ignore
-              vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File", buffer = buffer })
+              vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>",
+                { desc = "Rename File", buffer = buffer })
             end
           end)
           require("typescript").setup({ server = opts })
@@ -92,7 +94,7 @@ return {
           },
         }
       end
-      for _, language in ipairs({ "typescript", "javascript" }) do
+      for _, language in ipairs({ "typescript", "javascript", "typescriptreact" }) do
         if not dap.configurations[language] then
           dap.configurations[language] = {
             {
@@ -109,6 +111,38 @@ return {
               processId = require("dap.utils").pick_process,
               cwd = "${workspaceFolder}",
             },
+            {
+              type = "pwa-node",
+              request = "launch",
+              name = "Debug Jest Tests",
+              -- trace = true, -- include debugger info
+              runtimeExecutable = "node",
+              runtimeArgs = {
+                "./node_modules/jest/bin/jest.js",
+                "--runInBand",
+              },
+              rootPath = "${workspaceFolder}",
+              cwd = "${workspaceFolder}",
+              console = "integratedTerminal",
+              internalConsoleOptions = "neverOpen",
+            },
+            {
+              type = "pwa-node",
+              name = "Attach - Remote Debugging",
+              request = "attach",
+              program = "${file}",
+              cwd = vim.fn.getcwd(),
+              sourceMaps = true,
+              protocol = "inspector",
+              port = 9222,
+              webRoot = "${workspaceFolder}",
+            },
+            -- {
+            --   type = "pwa-chrome",
+            --   name = "Launch Chrome:4200",
+            --   request = "launch",
+            --   url = "http://localhost:4200",
+            -- },
           }
         end
       end
