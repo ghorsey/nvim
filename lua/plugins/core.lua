@@ -15,6 +15,7 @@ return {
     version = "*", -- always use latest version
     config = true,
     keys = {
+      { "<C-`>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
       { "<leader>ft", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
       { "<leader>1ft", "<cmd>1ToggleTerm<cr>", desc = "Toggle Terminal" },
       { "<leader>2ft", "<cmd>2ToggleTerm<cr>", desc = "Toggle Terminal" },
