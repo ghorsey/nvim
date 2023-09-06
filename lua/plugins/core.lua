@@ -10,25 +10,25 @@ return {
   },
 
   -- terminal
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*", -- always use latest version
-    config = true,
-    keys = {
-      { "<C-`>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
-      { "<leader>ft", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
-      { "<leader>1ft", "<cmd>1ToggleTerm<cr>", desc = "Toggle Terminal" },
-      { "<leader>2ft", "<cmd>2ToggleTerm<cr>", desc = "Toggle Terminal" },
-      { "<leader>3ft", "<cmd>3ToggleTerm<cr>", desc = "Toggle Terminal" },
-    },
-  },
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   version = "*", -- always use latest version
+  --   config = true,
+  --   keys = {
+  --     { "<C-`>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
+  --     { "<leader>ft", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
+  --     { "<leader>1ft", "<cmd>1ToggleTerm<cr>", desc = "Toggle Terminal" },
+  --     { "<leader>2ft", "<cmd>2ToggleTerm<cr>", desc = "Toggle Terminal" },
+  --     { "<leader>3ft", "<cmd>3ToggleTerm<cr>", desc = "Toggle Terminal" },
+  --   },
+  -- },
 
   -- hardtime.nvim
-  {
-    "m4xshen/hardtime.nvim",
-    event = "VeryLazy",
-    opts = {
-      disable_mouse = false,
-    },
-  },
+  --{
+    --"m4xshen/hardtime.nvim",
+    --event = "VeryLazy",
+    --opts = {
+      --disable_mouse = false,
+    --},
+  --},
 }

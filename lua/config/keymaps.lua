@@ -104,7 +104,7 @@ if not Util.has("trouble.nvim") then
 end
 
 -- toggle options
-map("n", "<leader>uf", require("plugins.lsp.format").toggle, { desc = "Toggle format on Save" }) -- GAH: we want format on save
+--map("n", "<leader>uf", require("plugins.lsp.format").toggle, { desc = "Toggle format on Save" }) -- GAH: we want format on save
 -- stylua: ignore
 map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 -- stylua: ignore
